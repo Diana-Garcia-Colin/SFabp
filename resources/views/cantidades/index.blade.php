@@ -75,9 +75,9 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Lista de Personas</h2>
+        <h2 class="text-center mb-4">Lista de Cantidades</h2>
 
-        <a href="{{ route('personas.create') }}" class="btn btn-primary mb-3">Create Persona</a>
+        <a href="{{ route('cantidades.create') }}" class="btn btn-primary mb-3">Create Cantidad</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -89,30 +89,20 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Cargo</th>
-                    <th>Contraseña</th>
+                    <th>Cantidades</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($personas as $persona)
+                @foreach($cantidades as $cantidad)
                     <tr>
-                        <td>{{ $persona->id }}</td>
-                        <td>{{ $persona->nombre }}</td>
-                        <td>{{ $persona->ap }}</td>
-                        <td>{{ $persona->am }}</td>
-                        <td>{{ $persona->fecha_nac }}</td>
-                        <td>{{ $persona->cargo }}</td>
-                        <td>{{ $persona->contraseña }}</td>
+                        <td>{{ $cantidad->id }}</td>
+                        <td>{{ $cantidad->num_prod }}</td>
 
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('personas.edit', $persona->id) }}" class="btn btn-sm btn-info mr-2">Edit</a>
-                                <form method="POST" action="{{ route('personas.destroy', $persona->id) }}">
+                                <a href="{{ route('cantidades.edit', $cantidad->id) }}" class="btn btn-sm btn-info mr-2">Edit</a>
+                                <form method="POST" action="{{ route('cantidades.destroy', $cantidad->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -127,7 +117,7 @@
 
     <script>
         function confirmDelete(id) {
-            if (confirm('Are you sure you want to delete this person?')) {
+            if (confirm('Are you sure you want to delete this lote?')) {
                 document.getElementById('delete-form-' + id).submit();
             }
         }

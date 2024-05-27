@@ -15,46 +15,62 @@ class PersonaController extends Controller
     }
     public function create()
     {
-        //
+        return view('personas.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $validatedData = $request->validate([
+        'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+        'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+        'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+        'fecha_nac' => 'required|date',
+        'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+        'contraseña' => 'required|string|min:1|max:255',
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
+    
+
+    Persona::create($validatedData);
+
+    return redirect()->route('personas.index');
+}
+
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $persona = Persona::find($id);
+        return view('personas.edit', compact('persona'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $request->validate([
+            'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'fecha_nac' => 'required|date',
+            'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'contraseña' => 'required|string|min:1|max:255',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        $persona = Persona::find($id);
+        $persona->update($request->all());
+
+        return redirect()->route('personas.index');
+    }
     public function destroy(string $id)
     {
-        //
+        $persona = Persona::find($id);
+        $persona->delete();
+
+        return redirect()->route('personas.index');
     }
 }
+
+
+

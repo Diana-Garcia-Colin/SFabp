@@ -23,11 +23,26 @@
                     {{ __('Personas') }}
                     </button>
                 </div>
+                <div class="container mt-5">
+                    <button type="button" class="btn btn-primary" onclick="redirectToRoute()">
+                    {{ __('Lotes') }}
+                    </button>
+                </div>
+
+                <div class="container mt-5">
+                    <button type="button" class="btn btn-primary" onclick="redirectToRoute()">
+                    {{ __('Cantidades') }}
+                    </button>
+                </div>
 
                 <script>
                     function redirectToRoute() {
                     window.location.href = '{{ route('personas.index') }}';
+                    window.location.href = '{{ route('lotes.index') }}';
+                    window.location.href = '{{ route('cantidades.index') }}';
+
                     }
+                    
                 </script>
             </div>
         </div>
