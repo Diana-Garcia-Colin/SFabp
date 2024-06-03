@@ -103,7 +103,7 @@
     </style>
     <div class="card-header">{{ __('Dashboard') }}</div>
 <ul class="navbar-nav mr-auto flex-row">
-<li class="nav-item mx-2">
+        <li class="nav-item mx-2">
         <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
     </li>
     <li class="nav-item mx-2">
@@ -117,15 +117,15 @@
     </li>
         <li class="nav-item mx-2">
              <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
-        </li>
+    </li>
 
     </ul>
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Lista de Personas</h2>
+        <h2 class="text-center mb-4">Lista de Productos</h2>
 
-        <a href="{{ route('personas.create') }}" class="btn btn-primary mb-3">Create Personas</a>
+        <a href="{{ route('productos.create') }}" class="btn btn-primary mb-3">Create Productos</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -137,30 +137,24 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Cargo</th>
-                    <th>Contrasena</th>
-                    <th>Actions</th>
-                </tr>
+                    <th>Nombre del procuto</th>
+                    <th>Precio</th>
+                    <th>Descripcion del producto</th>
+                
             </thead>
             <tbody>
-                @foreach($personas as $persona)
+                @foreach($productos as $producto)
                     <tr>
-                        <td>{{ $persona->id }}</td>
-                        <td>{{ $persona->nombre }}</td>
-                        <td>{{ $persona->ap }}</td>
-                        <td>{{ $persona->am }}</td>
-                        <td>{{ $persona->fecha_nac }}</td>
-                        <td>{{ $persona->cargo }}</td>
-                        <td>{{ $persona->contrasena }}</td>
+                        <td>{{ $producto->id }}</td>
+                        <td>{{ $producto->nom_pro }}</td>
+                        <td>{{ $producto->precio }}</td>
+                        <td>{{ $producto->descripcion }}</td>
+                        
 
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('personas.edit', $persona->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('personas.destroy', $persona->id) }}">
+                                <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('productos.destroy', $producto->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>

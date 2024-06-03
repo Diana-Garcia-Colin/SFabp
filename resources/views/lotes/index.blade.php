@@ -71,7 +71,56 @@
             background-color: #dc3545;
             color: #fff;
         }
+        .btn-custom {
+        background-color: #EC92DF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #EC92DF;
+            color: white;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 10px;
+        }
     </style>
+    <div class="card-header">{{ __('Dashboard') }}</div>
+<ul class="navbar-nav mr-auto flex-row">
+
+    <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
+    </li>
+    <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
+    </li>
+    <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('lotes.index') }}">{{ __('Lotes') }}</a>
+    </li>
+    <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('cantidades.index') }}">{{ __('Cantidades') }}</a>
+    </li>
+    <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
+    </li>
+
+    </ul>
 </head>
 <body>
     <div class="container">
@@ -101,11 +150,11 @@
 
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('lotes.edit', $lote->id) }}" class="btn btn-sm btn-info mr-2">Edit</a>
+                                <a href="{{ route('lotes.edit', $lote->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
                                 <form method="POST" action="{{ route('lotes.destroy', $lote->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
                                 </form>
                             </div>
                         </td>

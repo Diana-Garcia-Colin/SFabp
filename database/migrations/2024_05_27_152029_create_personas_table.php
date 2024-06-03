@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('am');
             $table->String('fecha_nac');
             $table->String('cargo');
-            $table->String('contraseña');
+            $table->String('contrasena');
             $table->timestamps();
         });
     }

@@ -77,7 +77,7 @@
 
                 <div class="mb-3">
                     <label for="fecha_nac" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" name="fecha_nac" id="fecha_nac" value="{{ old('fecha_nac', $persona->fecha_nac) }}" class="form-control" required>
+                    <input type="text" name="fecha_nac" id="fecha_nac" value="{{ old('fecha_nac', $persona->fecha_nac) }}" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
@@ -86,8 +86,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="contraseña" class="form-label">Contraseña</label>
-                    <input type="password" name="contraseña" id="contraseña" value="{{ old('contraseña', $persona->contraseña) }}" class="form-control" required>
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="text" name="contrasena" id="contrasena" value="{{ old('contrasena', $persona->contrasena) }}" class="form-control" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>
