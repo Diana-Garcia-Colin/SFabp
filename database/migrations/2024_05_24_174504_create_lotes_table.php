@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lotes', function (Blueprint $table) {
             $table->id();
-            $table->String('num_lote');
+            $table->double('num_lote');
             $table->timestamps();
         });
     }

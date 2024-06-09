@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->String('correo');
-            $table->String('no_cuenta');
+            $table->double('no_cuenta');
             $table->timestamps();
         });
     }
