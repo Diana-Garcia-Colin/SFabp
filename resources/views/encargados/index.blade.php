@@ -102,8 +102,8 @@
         }
     </style>
     <div class="card-header">{{ __('Dashboard') }}</div>
-<ul class="navbar-nav mr-auto flex-row">
-<li class="nav-item mx-2">
+||<ul class="navbar-nav mr-auto flex-row">
+||<li class="nav-item mx-2">
         <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
     </li>
     <li class="nav-item mx-2">
@@ -119,9 +119,6 @@
              <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
         </li>
         <li class="nav-item mx-2">
-             <a class="nav-link btn-custom" href="{{ route('encargados.index') }}">{{ __('Encargados') }}</a>
-        </li>
-        <li class="nav-item mx-2">
              <a class="nav-link btn-custom" href="{{ route('proveedores.index') }}">{{ __('Proveedores') }}</a>
         </li>
 
@@ -129,9 +126,9 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Lista de Personas</h2>
+        <h2 class="text-center mb-4">Lista de Encargados</h2>
 
-        <a href="{{ route('personas.create') }}" class="btn btn-primary mb-3">Create Personas</a>
+        <a href="{{ route('encargados.create') }}" class="btn btn-primary mb-3">Create Encargado</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -143,30 +140,19 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Cargo</th>
-                    <th>Contrasena</th>
+                    <th>Encargado</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($personas as $persona)
+                @foreach($encargados as $encargado)
                     <tr>
-                        <td>{{ $persona->id }}</td>
-                        <td>{{ $persona->nombre }}</td>
-                        <td>{{ $persona->ap }}</td>
-                        <td>{{ $persona->am }}</td>
-                        <td>{{ $persona->fecha_nac }}</td>
-                        <td>{{ $persona->cargo }}</td>
-                        <td>{{ $persona->contrasena }}</td>
-
+                        <td>{{ $encargado->id }}</td>
+                        <td>{{ $encargado->persona->nombre }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('personas.edit', $persona->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('personas.destroy', $persona->id) }}">
+                                <a href="{{ route('encargados.edit', $encargado->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('encargados.destroy', $encargado->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
