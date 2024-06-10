@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Cliente;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -11,7 +12,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cleintes = Clienete::all();
+        $clientes = Cliente::all();
         return view('clientes.index', compact('clientes'));
     }
 
@@ -20,8 +21,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
+        $clientes =Cliente::all();
         return view('clientes.create'); 
-
+        
     }
 
     /**
@@ -75,7 +77,7 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        $cliente = Productos::find($id);
+        $cliente = Clientes::find($id);
         $cliente->delete();
 
         return redirect()->route('clientes.index');
