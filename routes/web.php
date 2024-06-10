@@ -30,7 +30,6 @@ Route::resource('personas',PersonaController::class);
 Route::resource('cantidades',CantidadController::class);
 Route::resource('lotes',LoteController::class);
 Route::resource('productos',ProductosController::class);
-
 Route::resource('encargados',EncargadoController::class);
 Route::resource('proveedores',ProveedorController::class);
 
