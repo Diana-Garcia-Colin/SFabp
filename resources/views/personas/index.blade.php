@@ -1,8 +1,7 @@
 @extends("layouts.template")
 
-<<<<<<< HEAD
-@section("content")
-=======
+
+
     <!-- Bootstrap 5 (CSS y JS) -->
     @vite(['resources/js/app.js'])
 
@@ -122,12 +121,19 @@
         <li class="nav-item mx-2">
              <a class="nav-link btn-custom" href="{{ route('proveedores.index') }}">{{ __('Proveedores') }}</a>
         </li>
+        <li class="nav-item mx-2">
+             <a class="nav-link btn-custom" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
+        </li>
+        <li class="nav-item mx-2">
+        <a class="nav-link btn-custom" href="{{ route('registrospv.index') }}">{{ __('Registros prodcutos venta') }}</a>
+    </li>
+
 
     </ul>
 </head>
 <body>
     <div class="container">
->>>>>>> a4ced94393eacfdf448080bd0d1785759fcf40b4
+
         <h2 class="text-center mb-4">Lista de Personas</h2>
 
         <a href="{{ route('personas.create') }}" class="btn btn-primary mb-3">Crear Personas</a>
@@ -176,4 +182,3 @@
                 @endforeach
             </tbody>
         </table>
-@endsection

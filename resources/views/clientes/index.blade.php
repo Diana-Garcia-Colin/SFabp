@@ -129,9 +129,9 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Lista de Proveedores</h2>
+        <h2 class="text-center mb-4">Lista de Clientes</h2>
 
-        <a href="{{ route('proveedores.create') }}" class="btn btn-primary mb-3">Crear Proveedores</a>
+        <a href="{{ route('proveedores.create') }}" class="btn btn-primary mb-3">Crear Clientes</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -143,19 +143,19 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Proveedor</th>
+                    <th>Cliente</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($proveedores as $proveedor)
+                @foreach($clientes as $cliente)
                     <tr>
-                        <td>{{ $proveedor->id }}</td>
-                        <td>{{ $proveedor->persona->nombre }}</td>
+                        <td>{{ $cliente->id }}</td>
+                        <td>{{ $cliente->persona->nombre }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('proveedores.destroy', $proveedor->id) }}">
+                                <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('clientes.destroy', $cliente->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>

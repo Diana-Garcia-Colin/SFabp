@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primera Vista</title>
+    <title>Lista de Registros de Punto de Venta</title>
 
     <!-- Bootstrap 5 (CSS y JS) -->
     @vite(['resources/js/app.js'])
@@ -102,36 +102,35 @@
         }
     </style>
     <div class="card-header">{{ __('Dashboard') }}</div>
-||<ul class="navbar-nav mr-auto flex-row">
-||<li class="nav-item mx-2">
-        <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
-    </li>
-    <li class="nav-item mx-2">
-        <a class="nav-link btn-custom" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
-    </li>
-    <li class="nav-item mx-2">
-        <a class="nav-link btn-custom" href="{{ route('lotes.index') }}">{{ __('lotes') }}</a>
-    </li>
-    <li class="nav-item mx-2">
-        <a class="nav-link btn-custom" href="{{ route('cantidades.index') }}">{{ __('cantidades') }}</a>
-    </li>
+    <ul class="navbar-nav mr-auto flex-row">
         <li class="nav-item mx-2">
-             <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
+            <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
         </li>
         <li class="nav-item mx-2">
-             <a class="nav-link btn-custom" href="{{ route('proveedores.index') }}">{{ __('Proveedores') }}</a>
+            <a class="nav-link btn-custom" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
         </li>
         <li class="nav-item mx-2">
-             <a class="nav-link btn-custom" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
+            <a class="nav-link btn-custom" href="{{ route('lotes.index') }}">{{ __('lotes') }}</a>
         </li>
-
+        <li class="nav-item mx-2">
+            <a class="nav-link btn-custom" href="{{ route('cantidades.index') }}">{{ __('cantidades') }}</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link btn-custom" href="{{ route('proveedores.index') }}">{{ __('Proveedores') }}</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link btn-custom" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
+        </li> 
     </ul>
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Lista de Proveedores</h2>
+        <h2 class="text-center mb-4">Lista de Registros de Punto de Venta</h2>
 
-        <a href="{{ route('proveedores.create') }}" class="btn btn-primary mb-3">Crear Proveedores</a>
+        <a href="{{ route('registrospv.create') }}" class="btn btn-primary mb-3">Crear Registro de Punto de Venta</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -143,19 +142,25 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Proveedor</th>
-                    <th>Actions</th>
+                    <th>Encargado</th>
+                    <th>Producto</th>
+                    <th>Fecha de Entrega</th>
+                    <th>Cantidad de Entrega</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($proveedores as $proveedor)
+                @foreach($registrospv as $registropv)
                     <tr>
-                        <td>{{ $proveedor->id }}</td>
-                        <td>{{ $proveedor->persona->nombre }}</td>
+                        <td>{{ $registropv->id }}</td>
+                        <td>{{ $registropv->encargado->nombre }}</td>
+                        <td>{{ $registropv->producto->nombre }}</td>
+                        <td>{{ $registropv->fecha_entrega }}</td>
+                        <td>{{ $registropv->cantidad_entrega }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('proveedores.destroy', $proveedor->id) }}">
+                                <a href="{{ route('registrospv.edit', $registropv->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('registrospv.destroy', $registropv->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
@@ -167,13 +172,5 @@
             </tbody>
         </table>
     </div>
-
-    <script>
-        function confirmDelete(id) {
-            if (confirm('Are you sure you want to delete this lote?')) {
-                document.getElementById('delete-form-' + id).submit();
-            }
-        }
-    </script>
 </body>
 </html>
