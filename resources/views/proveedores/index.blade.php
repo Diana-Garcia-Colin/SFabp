@@ -1,8 +1,10 @@
-@extends("layouts.template")
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera Vista</title>
 
-<<<<<<< HEAD
-@section("content")
-=======
     <!-- Bootstrap 5 (CSS y JS) -->
     @vite(['resources/js/app.js'])
 
@@ -100,8 +102,8 @@
         }
     </style>
     <div class="card-header">{{ __('Dashboard') }}</div>
-<ul class="navbar-nav mr-auto flex-row">
-<li class="nav-item mx-2">
+||<ul class="navbar-nav mr-auto flex-row">
+||<li class="nav-item mx-2">
         <a class="nav-link btn-custom" href="{{ route('home') }}">{{ __('Home') }}</a>
     </li>
     <li class="nav-item mx-2">
@@ -117,9 +119,6 @@
              <a class="nav-link btn-custom" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
         </li>
         <li class="nav-item mx-2">
-             <a class="nav-link btn-custom" href="{{ route('encargados.index') }}">{{ __('Encargados') }}</a>
-        </li>
-        <li class="nav-item mx-2">
              <a class="nav-link btn-custom" href="{{ route('proveedores.index') }}">{{ __('Proveedores') }}</a>
         </li>
 
@@ -127,10 +126,9 @@
 </head>
 <body>
     <div class="container">
->>>>>>> a4ced94393eacfdf448080bd0d1785759fcf40b4
-        <h2 class="text-center mb-4">Lista de Personas</h2>
+        <h2 class="text-center mb-4">Lista de Proveedores</h2>
 
-        <a href="{{ route('personas.create') }}" class="btn btn-primary mb-3">Crear Personas</a>
+        <a href="{{ route('proveedores.create') }}" class="btn btn-primary mb-3">Crear Proveedores</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -141,31 +139,20 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Cargo</th>
-                    <th>Contraseña</th>
-                    <th>Acciones</th>
+                    <th>ID</th>
+                    <th>Proveedor</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($personas as $persona)
+                @foreach($proveedores as $proveedor)
                     <tr>
-                        <td>{{ $persona->id }}</td>
-                        <td>{{ $persona->nombre }}</td>
-                        <td>{{ $persona->ap }}</td>
-                        <td>{{ $persona->am }}</td>
-                        <td>{{ $persona->fecha_nac }}</td>
-                        <td>{{ $persona->cargo }}</td>
-                        <td>{{ $persona->contrasena }}</td>
-
+                        <td>{{ $proveedor->id }}</td>
+                        <td>{{ $proveedor->persona->nombre }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('personas.edit', $persona->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('personas.destroy', $persona->id) }}">
+                                <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('proveedores.destroy', $proveedor->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
@@ -176,4 +163,14 @@
                 @endforeach
             </tbody>
         </table>
-@endsection
+    </div>
+
+    <script>
+        function confirmDelete(id) {
+            if (confirm('Are you sure you want to delete this lote?')) {
+                document.getElementById('delete-form-' + id).submit();
+            }
+        }
+    </script>
+</body>
+</html>
