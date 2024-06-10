@@ -79,7 +79,7 @@
                             
 
                             <button type="submit" class="btn btn-primary">Guardar</button>
-                            <a href="{{ route('proveedores.index') }}" class="btn btn-secondary">Cancelar</a>
+                            <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>
                         </form>
                     </div>
                 </div>

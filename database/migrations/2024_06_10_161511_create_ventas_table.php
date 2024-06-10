@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registro__punto__ventas', function (Blueprint $table) {
+        Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade');
-            $table->String('fecha_entrega');
-            $table->String('cantidad_entrega');
+            $table->date('fecha_venta');
+            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade'); /////referencias a la tabla para ser llave foranea
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade'); /////referencias a la tabla para ser llave foranea
             $table->foreignId('encargado_id')->constrained('encargados')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
@@ -27,6 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registro__punto__ventas');
+        Schema::dropIfExists('ventas');
     }
 };
+

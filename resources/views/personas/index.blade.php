@@ -126,7 +126,13 @@
         </li>
         <li class="nav-item mx-2">
         <a class="nav-link btn-custom" href="{{ route('registrospv.index') }}">{{ __('Registros prodcutos venta') }}</a>
+
+        <li class="nav-item mx-2">
+             <a class="nav-link btn-custom" href="{{ route('ventas.index') }}">{{ __('Ventas') }}</a>
+        </li>
     </li>
+
+    
 
 
     </ul>

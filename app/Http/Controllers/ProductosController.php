@@ -47,7 +47,7 @@ class ProductosController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
+    { 
         $producto = Productos::find($id);
         return view('productos.edit', compact('producto'));
     }
