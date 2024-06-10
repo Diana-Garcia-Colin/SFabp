@@ -21,9 +21,14 @@ class ClienteController extends Controller
      */
     public function create()
     {
+
         $clientes =Cliente::all();
         return view('clientes.create'); 
         
+
+        $clientes =Clientes::all();
+        return view('clienets.create', compact('personas')); 
+
     }
 
     /**
@@ -31,15 +36,17 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        
         $validatedData = $request->validate([
-            'correo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'no_cuenta' => 'required|unique:clientes|max:255',
+            'persona_id' => 'required|exists:personas,id',
             
         ]);
         Cliente::create($validatedData);
         return redirect()->route('clientes.index');
     }
+
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
         //
@@ -50,8 +57,9 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        $cliente = Cliente::find($id);
-        return view('clientes.edit', compact('clientes'));
+        $cliente = Cliete::find($id);
+        $personas = Persona::all();
+        return view('clientes.edit', compact('cliente','personas'));
     }
 
     /**
@@ -59,15 +67,13 @@ class ClienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
-        $request->validate([
-            'correo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'no_cuenta' => 'required|unique:clientes|max:255',
+        $validatedData = $request->validate([
+            'persona_id' => 'required|exists:personas,id',
             
         ]);
 
-        $cliente = Cliente::find($id);
-        $cliente->update($request->all());
+        $cliente = Cliente::findOrFail($id);
+        $cliente->update($validatedData);
 
         return redirect()->route('clientes.index');
     }
@@ -77,7 +83,10 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
+
         $cliente = Clientes::find($id);
+
+        $cliente = Cliente::find($id);
         $cliente->delete();
 
         return redirect()->route('clientes.index');

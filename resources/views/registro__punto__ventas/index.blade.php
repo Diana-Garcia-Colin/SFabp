@@ -1,11 +1,9 @@
 @extends("layouts.template")
+
 @section("content")
+        <h2 class="text-center mb-4">Lista de Encargados</h2>
 
-
-        <h2 class="text-center mb-4">Lista de Clientes</h2>
-
-        <a href="{{ route('clientes.create') }}" class="btn btn-primary mb-3">Crear Clientes</a>
-
+        <a href="{{ route('encargados.create') }}" class="btn btn-primary mb-3">Create Encargado</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -16,28 +14,20 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-
-                    <th>Id</th>
-                    <th>Correo</th>
-                    <th>Numero de cuenta</th>
-                    <th>Acciones</th>
+                    <th>ID</th>
+                    <th>Encargado</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($clientes as $cliente)
+                @foreach($encargados as $encargado)
                     <tr>
-                        <td>{{ $cliente->id }}</td>
-
-                        <td>{{ $cliente->correo }}</td>
-                        <td>{{ $cliente->no_cuenta }}</td>
-
-
-                        <td>{{ $cliente->persona->nombre }}</td>
-
+                        <td>{{ $encargado->id }}</td>
+                        <td>{{ $encargado->persona->nombre }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('clientes.destroy', $cliente->id) }}">
+                                <a href="{{ route('encargados.edit', $encargado->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('encargados.destroy', $encargado->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
@@ -57,5 +47,4 @@
             }
         }
     </script>
-
 @endsection

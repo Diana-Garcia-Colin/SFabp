@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -12,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personas', function (Blueprint $table) {
+        Schema::create('registro__punto__ventas', function (Blueprint $table) {
             $table->id();
-            $table->String('nombre');
-            $table->String('ap');
-            $table->String('am');
-            $table->date('fecha_nac');
-            $table->String('cargo');
-            $table->String('contrasena');
+            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade');
+            $table->String('fecha_entrega');
+            $table->String('cantidad_entrega');
+            $table->foreignId('encargado_id')->constrained('encargados')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personas');
+        Schema::dropIfExists('registro__punto__ventas');
     }
 };

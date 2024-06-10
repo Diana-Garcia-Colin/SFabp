@@ -1,11 +1,12 @@
 @extends("layouts.template")
 
 @section("content")
+
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col-12">
                 <h2 class="font-weight-bold text-primary">
-                    {{ __('Crear empleado') }}
+                    {{ __('Crear Cliente') }}
                 </h2>
             </div>
         </div>
@@ -16,14 +17,15 @@
                         <form method="POST" action="{{ route('clientes.store') }}">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="correo" class="form-label">Correo</label>
-                                <input type="text" name="correo" id="correo" class="form-control" required>
+                           <div class="mb-3">
+                                <label for="descripcion" class="from-label">Clientes</label>
+                                <select name="persona_id" id="persona_id" class="form-contrl" required>
+                                    @foreach($personas as $persona)
+                                        <option value="{{$persona->id }}">{{$persona->nombre}} {{$persona->ap}} {{$persona->am}}</option>
+                                        @endforeach
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="no_cuenta" class="form-label">Número de cuenta</label>
-                                <input type="text" name="no_cuenta" id="no_cuenta" class="form-control" required>
-                            </div>
+                           
                             
 
                             <button type="submit" class="btn btn-primary">Guardar</button>

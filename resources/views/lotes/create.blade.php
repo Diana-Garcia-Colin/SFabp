@@ -19,7 +19,7 @@
 
                             <div class="form-group">
                                 <label for="num_lote" class="form-label">Numero de lotes</label>
-                                <input type="number" name="num_lote" id="num_lote" class="form-control" required>
+                                <input type="string" name="num_lote" id="num_lote" class="form-control" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Guardar</button>

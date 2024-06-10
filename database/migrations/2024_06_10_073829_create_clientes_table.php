@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->String('correo');
-            $table->double('no_cuenta');
+            $table->foreignId('persona_id')->constrained('personas')->onDelete('cascade'); /////referencias a la tabla para ser llave foranea
             $table->timestamps();
         });
     }

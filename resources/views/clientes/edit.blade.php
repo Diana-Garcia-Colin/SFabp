@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Persona</title>
+    <title>Editar Cliente</title>
 
     <!-- Bootstrap 5 (CSS y JS) -->
     @vite(['resources/js/app.js'])
@@ -56,42 +56,26 @@
         <h2 class="text-center mb-4">Editar Clientes</h2>
         <div class="card">
 
-            <form method="POST" action="{{ route('clientes.update', $clientes->id) }}">
+            <form method="POST" action="{{ route('clientes.update', $cliente->id) }}">
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" value="{{ old('nombre', $persona->nombre) }}" class="form-control" required>
+               <div class="mb-3">
+                <label for="persona_id" class="form-label">Persona</label>
+                <select name="persona_id" id="persona_id" class="form_control" required>
+                    <option value="">Selecciona una persona</option>
+                    @foreach($personas as $persona)
+                        <option value="{{$persona->id}}" {{$cliente->persona_id == $persona->id ? 'selected' : '' }}>{{$persona->nombre}} {{$persona->ap}} {{$persona->am}}</option>
+                        @endforeach
+
+                </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="ap" class="form-label">Apellido Paterno</label>
-                    <input type="text" name="ap" id="ap" value="{{ old('ap', $persona->ap) }}" class="form-control" required>
-                </div>
+                
 
-                <div class="mb-3">
-                    <label for="am" class="form-label">Apellido Materno</label>
-                    <input type="text" name="am" id="am" value="{{ old('am', $persona->am) }}" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="fecha_nac" class="form-label">Fecha de Nacimiento</label>
-                    <input type="text" name="fecha_nac" id="fecha_nac" value="{{ old('fecha_nac', $persona->fecha_nac) }}" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="cargo" class="form-label">Cargo</label>
-                    <input type="text" name="cargo" id="cargo" value="{{ old('cargo', $persona->cargo) }}" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="contrasena" class="form-label">Contraseña</label>
-                    <input type="text" name="contrasena" id="contrasena" value="{{ old('contrasena', $persona->contrasena) }}" class="form-control" required>
-                </div>
-
+                
                 <button type="submit" class="btn btn-primary">Guardar</button>
-                <a href="{{ route('personas.index') }}" class="btn btn-secondary">Cancelar</a>
+                <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
 
         </div>

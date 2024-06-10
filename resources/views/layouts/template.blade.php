@@ -116,6 +116,13 @@
                                     <span class="menu-text">Proveedores</span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a href="{{url('registrospv')}}">
+                                    <i class="icon-local_library"></i>
+                                    <span class="menu-text">Registros Punto de Ventas</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- sidebar menu end -->

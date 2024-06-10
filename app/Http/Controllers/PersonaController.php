@@ -35,7 +35,7 @@ class PersonaController extends Controller
             'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'fecha_nac' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'fecha_nac' => 'required|date|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'contrasena' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
         ]);
@@ -66,7 +66,7 @@ class PersonaController extends Controller
             'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'fecha_nac' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'fecha_nac' => 'required|date|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'contrasena' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
         ]);

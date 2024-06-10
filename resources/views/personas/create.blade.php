@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="fecha_nac" class="form-label">Fecha de Nacimiento</label>
-                                <input type="text" name="fecha_nac" id="fecha_nac" class="form-control" required>
+                                <input type="date" name="fecha_nac" id="fecha_nac" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="cargo" class="form-label">Cargo</label>
