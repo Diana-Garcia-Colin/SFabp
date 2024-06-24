@@ -22,12 +22,17 @@ class ClienteController extends Controller
     public function create()
     {
 
+
         $clientes =Cliente::all();
         return view('clientes.create'); 
         
 
         $clientes =Clientes::all();
         return view('clienets.create', compact('personas')); 
+
+
+        $personas =Persona::all();
+        return view('clientes.create', compact('personas')); 
 
     }
 
@@ -57,7 +62,7 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        $cliente = Cliete::find($id);
+        $cliente = Cliente::find($id);
         $personas = Persona::all();
         return view('clientes.edit', compact('cliente','personas'));
     }

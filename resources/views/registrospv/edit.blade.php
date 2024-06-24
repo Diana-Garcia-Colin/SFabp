@@ -15,7 +15,7 @@
                     <select name="encargado_id" id="encargado_id" class="form-control" required>
                         @foreach($encargados as $encargado)
                             <option value="{{ $encargado->id }}" {{ $registropv->encargado_id == $encargado->id ? 'selected' : '' }}>
-                                {{ $encargado->persona->nombre }}
+                                {{ $encargado->persona->nombre }}{{$encargado->$persona->ap}} {{$encargado->$persona->am}}
                             </option>
                         @endforeach
                     </select>

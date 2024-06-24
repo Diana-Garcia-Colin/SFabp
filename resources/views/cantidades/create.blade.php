@@ -18,7 +18,7 @@
 
                             <div class="form-group">
                                 <label for="num_prod" class="form-label">Cantidad:</label>
-                                <input type="text" name="num_prod" id="num_prod" class="form-control" required>
+                                <input type="number" name="num_prod" id="num_prod" class="form-control" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Guardar</button>

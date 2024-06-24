@@ -24,7 +24,7 @@
             <tbody>
                 @foreach($productos as $producto)
                     <tr>
-                        <td>{{ $producto->id }}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ $producto->nom_pro }}</td>
                         <td>{{ $producto->precio }}</td>
                         <td>{{ $producto->descripcion }}</td>

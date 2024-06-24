@@ -30,9 +30,9 @@
                     <input type="date" name="fecha_nac" id="fecha_nac" value="{{ old('fecha_nac', $persona->fecha_nac) }}" class="form-control" required>
                 </div>
 
-                <div class="mb-3">
-                    <label for="cargo" class="form-label">Cargo</label>
-                    <input type="text" name="cargo" id="cargo" value="{{ old('cargo', $persona->cargo) }}" class="form-control" required>
+               <div class="mb-3">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="number" name="telefono" id="telefono" value="{{ old('telefono', $persona->telefono) }}" class="form-control" required>
                 </div>
 
                 <div class="mb-3">

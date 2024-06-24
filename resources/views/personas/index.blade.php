@@ -1,4 +1,5 @@
 @extends("layouts.template")
+
 @section("content")
 
         <h2 class="text-center mb-4">Lista de Personas</h2>
@@ -19,7 +20,7 @@
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
                     <th>Fecha de Nacimiento</th>
-                    <th>Cargo</th>
+                    <th>Telefono</th>
                     <th>Contraseña</th>
                     <th>Acciones</th>
                 </tr>
@@ -32,7 +33,7 @@
                         <td>{{ $persona->ap }}</td>
                         <td>{{ $persona->am }}</td>
                         <td>{{ $persona->fecha_nac }}</td>
-                        <td>{{ $persona->cargo }}</td>
+                        <td>{{ $persona->telefono }}</td>
                         <td>{{ $persona->contrasena }}</td>
 
                         <td>

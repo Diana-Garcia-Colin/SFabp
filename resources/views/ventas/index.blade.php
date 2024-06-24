@@ -1,9 +1,10 @@
 @extends("layouts.template")
-
 @section("content")
-        <h2 class="text-center mb-4">Lista de Registros de Punto de Venta</h2>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Lista de Venta</h2>
 
-        <a href="{{ route('registrospv.create') }}" class="btn btn-primary mb-3">Crear Registro de Punto de Venta</a>
+        <a href="{{ route('ventas.create') }}" class="btn btn-primary mb-3">Crear Venta</a>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -16,24 +17,24 @@
                 <tr>
                     <th>ID</th>
                     <th>Encargado</th>
+                    <th>Cliente</th>
                     <th>Producto</th>
-                    <th>Fecha de Entrega</th>
-                    <th>Cantidad de Entrega</th>
+                    <th>Fecha de Venta</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($registrospv as $registropv)
+                @foreach($ventas as $venta)
                     <tr>
-                        <td>{{ $loop->index+1 }}</td>
-                        <td>{{ $registropv->encargado->nombre }}</td>
-                        <td>{{ $registropv->producto->nom_pro }}</td>
-                        <td>{{ $registropv->fecha_entrega }}</td>
-                        <td>{{ $registropv->cantidad_entrega }}</td>
+                        <td>{{ $venta->id }}</td>
+                        <td>{{ $venta->encargado->nombre}}</td>
+                        <td>{{ $venta->producto->nom_pro}}</td>
+                        <td>{{ $venta->clientes->nombre }}</td>
+                        <td>{{ $venta->fecha_venta }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('registrospv.edit', $registropv->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
-                                <form method="POST" action="{{ route('registrospv.destroy', $registropv->id) }}">
+                                <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-sm btn-info mr-2">Editar</a>
+                                <form method="POST" action="{{ route('venta.destroy', $venta->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
@@ -44,4 +45,6 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+</body>
 @endsection

@@ -32,8 +32,8 @@
                                 <input type="date" name="fecha_nac" id="fecha_nac" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="cargo" class="form-label">Cargo</label>
-                                <input type="text" name="cargo" id="cargo" class="form-control" required>
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="number" name="telefono" id="telefono" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="contrasena" class="form-label">Contraseña</label>

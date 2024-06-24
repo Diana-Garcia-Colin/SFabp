@@ -30,7 +30,7 @@ class CantidadController extends Controller
     {
         
         $validatedData = $request->validate([
-            'num_prod' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'num_prod' => 'required|integer|min:1',
         ]);
         Cantidad::create($validatedData);
         return redirect()->route('cantidades.index');
@@ -59,7 +59,7 @@ class CantidadController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nunm_prod' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'nunm_prod' => 'required|integer|min:1',
         ]);
 
         $cantidad = Cantidad::find($id);

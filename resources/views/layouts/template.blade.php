@@ -123,6 +123,8 @@
                                     <span class="menu-text">Registros Punto de Ventas</span>
                                 </a>
                             </li>
+
+                            
                         </ul>
                     </div>
                     <!-- sidebar menu end -->

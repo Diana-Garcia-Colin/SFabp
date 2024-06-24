@@ -1,11 +1,9 @@
 @extends("layouts.template")
 @section("content")
 
-
         <h2 class="text-center mb-4">Lista de Clientes</h2>
 
         <a href="{{ route('clientes.create') }}" class="btn btn-primary mb-3">Crear Clientes</a>
-
 
         @if (session('error'))
             <div class="alert alert-danger">

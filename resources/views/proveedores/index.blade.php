@@ -22,7 +22,7 @@
             <tbody>
                 @foreach($proveedores as $proveedor)
                     <tr>
-                        <td>{{ $proveedor->id }}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ $proveedor->persona->nombre }}</td>
                         <td>
                             <div class="d-flex justify-content-center">

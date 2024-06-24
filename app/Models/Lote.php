@@ -9,8 +9,7 @@ class Lote extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'num_lote',
-        
+        'num_lote', 
     ];
     
 }

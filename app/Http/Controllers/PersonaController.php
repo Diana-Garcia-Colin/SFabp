@@ -35,8 +35,8 @@ class PersonaController extends Controller
             'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'fecha_nac' => 'required|date|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'fecha_nac' => 'required|date',
+            'telefono' => 'required|integer|min:1',
             'contrasena' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
         ]);
         Persona::create($validatedData);
@@ -66,8 +66,8 @@ class PersonaController extends Controller
             'nombre' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'ap' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'am' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'fecha_nac' => 'required|date|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'cargo' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'fecha_nac' => 'required|date',
+            'telefono' => 'required|integer|min:1',
             'contrasena' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
         ]);
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('ap');
             $table->String('am');
             $table->date('fecha_nac');
-            $table->String('cargo');
+            $table->integer('telefono');
             $table->String('contrasena');
             $table->timestamps();
         });

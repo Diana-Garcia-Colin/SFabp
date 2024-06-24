@@ -15,14 +15,14 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Numero de lotes</th>
+                    <th>Numero de lote</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($lotes as $lote)
                     <tr>
-                        <td>{{ $lote->id }}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ $lote->num_lote }}</td>
 
                         <td>

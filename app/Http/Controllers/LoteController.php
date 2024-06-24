@@ -31,7 +31,7 @@ class LoteController extends Controller
     {
         
         $validatedData = $request->validate([
-            'num_lote' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'num_lote' => 'required|integer|min:1',
         ]);
         Lote::create($validatedData);
         return redirect()->route('lotes.index');
@@ -57,7 +57,7 @@ class LoteController extends Controller
     {
         
         $request->validate([
-            'nunm_lote' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
+            'nunm_lote' => 'required|integer|min:1',
         ]);
 
         $lote = Lote::find($id);

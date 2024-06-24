@@ -13,7 +13,7 @@ class Persona extends Model
         'ap',
         'am',
         'fecha_nac',
-        'cargo',
+        'telefono',
         'contrasena',
     ];
 }
