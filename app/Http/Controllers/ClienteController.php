@@ -21,16 +21,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-
-
-        $clientes =Cliente::all();
-        return view('clientes.create'); 
         
-
-        $clientes =Clientes::all();
-        return view('clienets.create', compact('personas')); 
-
-
         $personas =Persona::all();
         return view('clientes.create', compact('personas')); 
 

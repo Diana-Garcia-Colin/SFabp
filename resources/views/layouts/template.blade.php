@@ -123,6 +123,12 @@
                                     <span class="menu-text">Registros Punto de Ventas</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{url('ventas')}}">
+                                    <i class="icon-local_library"></i>
+                                    <span class="menu-text">Ventas</span>
+                                </a>
+                            </li>
 
                             
                         </ul>
