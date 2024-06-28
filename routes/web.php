@@ -10,6 +10,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\RegistrospvController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\CategoriaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,3 +37,4 @@ Route::resource('proveedores',ProveedorController::class);
 Route::resource('clientes',ClienteController::class);
 Route::resource('registrospv',RegistrospvController::class);
 Route::resource('ventas',VentaController::class);
+Route::resource('categorias',CategoriaController::class);
