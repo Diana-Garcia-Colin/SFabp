@@ -3,7 +3,7 @@
 @section("content")
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Editar Prodcuto</h2>
+        <h2 class="text-center mb-4">Editar Producto</h2>
         <div class="card">
 
             <form method="POST" action="{{ route('productos.update', $producto->id) }}">
@@ -29,7 +29,7 @@
                     <label for="categoria_id" class="form-label">Categoria</label>
                     <select name="categoria_id" id="categoria_id" class="form-control" required>
                         @foreach($categorias as $categoria)
-                            <option value="{{ $categoria->id }}" {{ $productos->categoria_id == $categoria->id ? 'selected' : '' }}>
+                            <option value="{{ $categoria->id }}" {{ $producto->categoria_id == $categoria->id ? 'selected' : '' }}>
                                 {{ $categoria->tipo_c }}
                             </option>
                         @endforeach
@@ -49,9 +49,7 @@
                                 <br>
                                 <img src="../../../uploads/{{ $productos->img }}" width="200" class="img-fluid">
 
-                            @else
-
-                                Aún no se ha cargado una imagen para este producto
+                            
 
                             @endif
 

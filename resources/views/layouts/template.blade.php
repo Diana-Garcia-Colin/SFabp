@@ -125,8 +125,14 @@
                             </li>
                             <li>
                                 <a href="{{url('ventas')}}">
-                                    <i class="icon-local_library"></i>
+                                    <i class="icon-dollar-sign"></i>
                                     <span class="menu-text">Ventas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('detallesventa')}}">
+                                    <i class="icon-login"></i>
+                                    <span class="menu-text">Detalles Venta</span>
                                 </a>
                             </li>
 

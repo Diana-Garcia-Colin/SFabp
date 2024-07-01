@@ -16,8 +16,9 @@
                 <tr>
 
                     <th>Id</th>
-                    <th>Correo</th>
-                    <th>Numero de cuenta</th>
+                    <th>Nombre Cliente</th>
+                    <th></th>
+                    <th></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -25,12 +26,9 @@
                 @foreach($clientes as $cliente)
                     <tr>
                         <td>{{ $cliente->id }}</td>
-
-                        <td>{{ $cliente->correo }}</td>
-                        <td>{{ $cliente->no_cuenta }}</td>
-
-
                         <td>{{ $cliente->persona->nombre }}</td>
+                        <td>{{ $cliente->persona->ap }}</td>
+                        <td>{{ $cliente->persona->am }}</td>
 
                         <td>
                             <div class="d-flex justify-content-center">

@@ -12,7 +12,7 @@ use App\Http\Controllers\RegistrospvController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\DetalleVentasController;
-
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,4 +47,4 @@ Route::resource('Registro_Productos',Registro_ProductosController::class);
 Route::resource('detallesventa',DetalleVentasController::class);
 
 Route::get('/home', [ProductosController::class, 'index'])->name('home');
-Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
+Route::post('/home', [HomeController::class, 'home'])->name('home');

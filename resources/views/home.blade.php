@@ -96,61 +96,24 @@
       </div>
     </section>
 
-    <section class="categorias my-5">
-      <div class="container">
-        <h2 class="text-center my-5">Nuestras Categorias</h2>
+    <main class="container mt-5">
+      <div class="container mt-4">
         <div class="row">
-          <div class="col-sm-4">
-            <div class="card">
-              <img src="per8.jpg" class="card-img-top" alt="Damas">
-              <div class="card-body text-center">
-                <h5 class="card-title">Damas</h5>
-                <a href="productos" class="btn btn-primary">Ver</a>
+          @foreach ($productos as $producto) 
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="card">
+                <img src="{{ Storage::url($producto->imagen) }}" alt="Imagen de Producto">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{$producto->nom_pro}}</h5>
+                  <p class="card-text"><strong>Precio:</strong>{{$producto->precio}}</p>
+                  <p class="card-text"><strong>Descripcion:</strong>{{$producto->descripcion}}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <img src="per9.jpg" class="card-img-top" alt="Caballeros">
-              <div class="card-body text-center">
-                <h5 class="card-title">Caballeros</h5>
-                <a href="crud_caballeros.html" class="btn btn-primary">Ver</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <img src="per10.jpg" class="card-img-top" alt="Ofertas">
-              <div class="card-body text-center">
-                <h5 class="card-title">Ofertas</h5>
-                <a href="crud_ofertas.html" class="btn btn-primary">Ver</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="productos my-5">
-      <div class="container">
-        <h2 class="text-center my-5">Productos</h2>
-        <div class="row">
-          @foreach($productos as $producto)
-          <div class="col-sm-4 mb-4">
-            <div class="card" style="width: 18rem; height: 25rem;">
-              <img src="{!! asset("uploads/$producto->img") !!}" class="card-img-top" alt="{{ $producto->nom_pro }}" style="height: 12rem; object-fit: cover;">
-              <div class="card-body">
-                <h5 class="card-title">{{ $producto->nom_pro }}</h5>
-                <p class="card-text">Precio: ${{ $producto->precio }}</p>
-                <p class="card-text">{{ $producto->descripcion }}</p>
-                <p class="card-text">{{ $producto->categoria_id }}</p>
-              </div>
-            </div>
-          </div>
           @endforeach
         </div>
       </div>
-    </section>
+  </main>
 
 
 

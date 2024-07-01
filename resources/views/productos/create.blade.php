@@ -54,10 +54,6 @@
                                         <br>
                                         <img src="../../../uploads/{{ $productos->img }}" width="200" class="img-fluid">
 
-                                    @else
-
-                                        Aún no se ha cargado una imagen para este producto
-
                                     @endif
 
                                 </div>
