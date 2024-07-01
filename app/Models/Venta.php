@@ -9,26 +9,19 @@ class Venta extends Model
 {
     use HasFactory;
 
-    protected $table = 'registro_punto_venta';
-
-    protected $fillable = [
-        'fecha_venta', 
-        'producto_id', 
-        'cliente_id', 
-        'encargado_id'
-    ];
-
+    // Definir las relaciones
     public function encargado()
     {
-        return $this->belongsTo(Encargado::class, 'encargado_id'); // Relación belongsTo con Encargado
+        return $this->belongsTo(User::class, 'encargado_id');
+    }
+
+    public function clientes()
+    {
+        return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
     public function producto()
     {
-        return $this->belongsTo(Productos::class, 'producto_id'); // Relación belongsTo con Producto
-    }
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class, 'cliente_id'); // Relación belongsTo con Producto
+        return $this->belongsTo(Productos::class, 'producto_id');
     }
 }

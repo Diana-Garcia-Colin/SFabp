@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Models\Productos;
-use App\Models\Categorias;
-use App\Models\Categoria;
 class ProductosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-   
     public function index()
     {
         $productos = Productos::all();
-        return view('home', compact('productos'));
-        
+        return view('productos.index', compact('productos'));
     }
 
     /**
@@ -25,9 +20,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        $productos = Productos::all();
-        $categorias = Categorias::all();
-        return view('productos.create', compact('productos','categorias')); 
+        return view('productos.create'); 
 
     }
 
@@ -41,17 +34,14 @@ class ProductosController extends Controller
             'nom_pro' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'precio' => 'required|numeric|min:0.01',
             'descripcion' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'categoria_id' => 'required|exists:categorias,id',
-            'img' => 'required|string',
+            'img' =>'required|string',
         ]);
         Productos::create($validatedData);
         return redirect()->route('productos.index');
     }
     public function show(string $id)
     {
-        $productos = Productos::find($id);
-        $categorias = Categorias::all();
-        return view('productos.index', compact('productos','categorias'));
+        //
     }
 
     /**
@@ -60,10 +50,7 @@ class ProductosController extends Controller
     public function edit(string $id)
     { 
         $producto = Productos::find($id);
-        $categorias = Categorias::all();
-
-        return view('productos.edit', compact('producto','categorias'));
-
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -76,8 +63,7 @@ class ProductosController extends Controller
             'nom_pro' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
             'precio' => 'required|numeric|min:0.01',
             'descripcion' => 'required|string|min:1|max:255|regex:/^[a-zA-Z ñ]+$/',
-            'categoria_id' => 'required|exists:categorias,id',
-            'img' => 'required|string',
+            'img' =>'required|string',
         ]);
 
         $producto = Productos::find($id);
@@ -96,5 +82,4 @@ class ProductosController extends Controller
 
         return redirect()->route('productos.index');
     }
-    
 }

@@ -24,40 +24,10 @@
                     <label for="descripcion" class="form-label">Descripcion del producto</label>
                     <input type="text" name="descripcion" id="descripcion" value="{{ old('descripcion', $producto->descripcion) }}" class="form-control" required>
                 </div>
-
-                <div class="mb-3">
-                    <label for="categoria_id" class="form-label">Categoria</label>
-                    <select name="categoria_id" id="categoria_id" class="form-control" required>
-                        @foreach($categorias as $categoria)
-                            <option value="{{ $categoria->id }}" {{ $productos->categoria_id == $categoria->id ? 'selected' : '' }}>
-                                {{ $categoria->tipo_c }}
-                            </option>
-                        @endforeach
-                    </select>
+                 <div class="mb-3">
+                    <label for="img" class="form-label">Imagen</label>
+                    <input type="text" name="imagen" id="imagen" value="{{ old('img', $producto->imagen) }}" class="form-control" required>
                 </div>
-
-                <div class="mb-3">
-                        <label for="img" class="negrita">Selecciona una imagen:</label>
-                        <div>
-                            <input name="img" type="file" id="img">
-                            <br>
-                            <br>
-
-                            @if ( !empty ( $productos->img) )
-
-                                <span>Imagen Actual: </span>
-                                <br>
-                                <img src="../../../uploads/{{ $productos->img }}" width="200" class="img-fluid">
-
-                            @else
-
-                                Aún no se ha cargado una imagen para este producto
-
-                            @endif
-
-                        </div>
-
-                    </div>
 
                 
 

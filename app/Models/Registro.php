@@ -13,6 +13,7 @@ class Registro extends Model
         'fecha_entrega',
         'cantidad_entrega',
         'encargado_id',
+        'img',
 
         
     ];

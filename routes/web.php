@@ -12,6 +12,7 @@ use App\Http\Controllers\RegistrospvController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CategoriaController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,11 +23,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register', [App\Http\Controllers\RegisterController::class, 'register'])->name('register');
+
 
 Route::resource('personas',PersonaController::class);
 Route::resource('cantidades',CantidadController::class);
@@ -37,4 +39,10 @@ Route::resource('proveedores',ProveedorController::class);
 Route::resource('clientes',ClienteController::class);
 Route::resource('registrospv',RegistrospvController::class);
 Route::resource('ventas',VentaController::class);
+
 Route::resource('categorias',CategoriaController::class);
+
+Route::resource('Registro_Productos',Registro_ProductosController::class);
+
+Route::get('/home', [ProductosController::class, 'index'])->name('home');
+Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');

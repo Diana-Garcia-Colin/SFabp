@@ -16,6 +16,8 @@ return new class extends Migration
             $table->String('nom_pro');
             $table->double('precio');
             $table->String('descripcion');
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
+            $table->string('img');
             $table->timestamps();
         });
     }
