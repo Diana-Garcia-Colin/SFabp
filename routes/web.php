@@ -11,6 +11,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\RegistrospvController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DetalleVentasController;
 
 
 Route::get('/', function () {
@@ -43,6 +44,7 @@ Route::resource('ventas',VentaController::class);
 Route::resource('categorias',CategoriaController::class);
 
 Route::resource('Registro_Productos',Registro_ProductosController::class);
+Route::resource('detallesventa',DetalleVentasController::class);
 
 Route::get('/home', [ProductosController::class, 'index'])->name('home');
 Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
